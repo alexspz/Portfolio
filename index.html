@@ -3,68 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio – Ingeniero de Telecomunicaciones</title>
+  <title>Alejandro Esparza – Ingeniero de Telecomunicaciones</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:        #050a0f;
-      --surface:   #090f16;
-      --card:      #0d1520;
-      --border:    #1a2d40;
-      --accent:    #00d4ff;
-      --accent2:   #ff6b35;
-      --green:     #00ff88;
-      --text:      #c8dce8;
-      --muted:     #4a6275;
-      --white:     #eaf4fb;
+      --bg:        #f5f4f0;
+      --white:     #ffffff;
+      --surface:   #eceae4;
+      --card:      #ffffff;
+      --border:    #dcd9d0;
+      --border2:   #c8c4b8;
+      --blue:      #1a5fd4;
+      --blue-lt:   #e8f0fc;
+      --blue-mid:  #3b7de8;
+      --orange:    #d4550a;
+      --green:     #1a7a4a;
+      --green-lt:  #e6f4ed;
+      --text:      #1c1c1e;
+      --text2:     #4a4a50;
+      --muted:     #8a8a96;
+      --mono:      'IBM Plex Mono', monospace;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 17px;
-      line-height: 1.6;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
       overflow-x: hidden;
     }
-
-    /* ── GRID OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,212,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── SCANLINES ── */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,.15) 2px,
-        rgba(0,0,0,.15) 4px
-      );
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    section, header, footer { position: relative; z-index: 1; }
-
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -72,529 +42,355 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 60px;
-      background: rgba(5,10,15,.85);
-      backdrop-filter: blur(12px);
+      padding: 0 60px;
+      height: 60px;
+      background: rgba(245,244,240,.92);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-logo {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1rem;
-      color: var(--accent);
-      letter-spacing: .1em;
+      font-family: var(--mono);
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: .04em;
     }
-    .nav-logo span { color: var(--green); }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 36px;
-    }
+    nav ul { list-style: none; display: flex; gap: 32px; }
     nav a {
-      font-family: 'Space Mono', monospace;
-      font-size: .72rem;
+      font-size: .83rem;
+      font-weight: 500;
       text-decoration: none;
-      color: var(--muted);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      transition: color .2s;
+      color: var(--text2);
+      letter-spacing: .01em;
+      transition: color .18s;
     }
-    nav a:hover { color: var(--accent); }
-
-    /* ── HERO ── */
+    nav a:hover { color: var(--blue); }
     header {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 60px 60px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      align-items: center;
+      gap: 60px;
+      padding: 100px 60px 60px;
       position: relative;
       overflow: hidden;
     }
-
-    .hero-bg {
+    .hero-decoration {
       position: absolute;
-      top: -10%; right: -5%;
-      width: 60%;
-      height: 120%;
-      background: radial-gradient(ellipse at 70% 40%, rgba(0,212,255,.08) 0%, transparent 65%),
-                  radial-gradient(ellipse at 90% 80%, rgba(0,255,136,.05) 0%, transparent 50%);
+      top: 0; right: 0;
+      width: 55%; height: 100%;
+      background:
+        linear-gradient(135deg, var(--blue-lt) 0%, transparent 60%),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, var(--border) 39px, var(--border) 40px),
+        repeating-linear-gradient(0deg, transparent, transparent 39px, var(--border) 39px, var(--border) 40px);
+      opacity: .4;
       pointer-events: none;
     }
-
-    .hero-tag {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .78rem;
-      color: var(--accent);
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeUp .6s .2s forwards;
-    }
-    .hero-tag::before { content: '▶  '; }
-
-    h1 {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: 1;
-      color: var(--white);
-      letter-spacing: -.01em;
-      opacity: 0;
-      animation: fadeUp .7s .4s forwards;
-    }
-    h1 em {
-      font-style: normal;
-      color: var(--accent);
-      display: block;
-    }
-
-    .hero-sub {
-      margin-top: 28px;
-      max-width: 560px;
-      font-size: 1.1rem;
-      color: var(--muted);
-      font-weight: 400;
-      opacity: 0;
-      animation: fadeUp .7s .6s forwards;
-    }
-
-    .hero-badges {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 36px;
-      opacity: 0;
-      animation: fadeUp .7s .8s forwards;
-    }
-    .badge {
-      padding: 6px 16px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      font-family: 'Share Tech Mono', monospace;
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
       font-size: .72rem;
-      color: var(--accent);
+      font-weight: 600;
+      color: var(--blue);
       letter-spacing: .1em;
-      background: rgba(0,212,255,.04);
-      transition: border-color .2s, background .2s;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding: 6px 14px;
+      background: var(--blue-lt);
+      border: 1px solid #c0d4f5;
+      border-radius: 4px;
+      opacity: 0;
+      animation: fadeUp .5s .1s forwards;
     }
-    .badge:hover {
-      border-color: var(--accent);
-      background: rgba(0,212,255,.1);
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
     }
-    .badge.green { color: var(--green); border-color: rgba(0,255,136,.3); background: rgba(0,255,136,.04); }
-    .badge.green:hover { border-color: var(--green); background: rgba(0,255,136,.1); }
-
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--text);
+      letter-spacing: -.02em;
+      opacity: 0;
+      animation: fadeUp .6s .25s forwards;
+    }
+    h1 span { color: var(--blue); }
+    .hero-sub {
+      margin-top: 24px;
+      max-width: 520px;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text2);
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp .6s .4s forwards;
+    }
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+      opacity: 0;
+      animation: fadeUp .6s .55s forwards;
+    }
+    .chip {
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-family: var(--mono);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      border: 1.5px solid;
+    }
+    .chip-blue   { color: var(--blue);   border-color: #a8c4f0; background: var(--blue-lt); }
+    .chip-green  { color: var(--green);  border-color: #a8d4bc; background: var(--green-lt); }
+    .chip-orange { color: var(--orange); border-color: #f0c4a0; background: #fdf0e8; }
     .hero-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-top: 48px;
-      padding: 14px 32px;
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-family: 'Space Mono', monospace;
-      font-size: .78rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      margin-top: 40px;
+      padding: 13px 28px;
+      background: var(--blue);
+      color: #fff;
+      font-size: .88rem;
+      font-weight: 600;
       text-decoration: none;
-      cursor: pointer;
-      transition: background .2s, color .2s;
+      border-radius: 6px;
+      letter-spacing: .01em;
+      transition: background .2s, transform .15s;
       opacity: 0;
-      animation: fadeUp .7s 1s forwards;
+      animation: fadeUp .6s .7s forwards;
     }
-    .hero-cta:hover { background: var(--accent); color: var(--bg); }
-    .hero-cta::after { content: '→'; }
-
-    /* ── STATS BAR ── */
+    .hero-cta:hover { background: var(--blue-mid); transform: translateY(-1px); }
+    .hero-cta::after { content: '↗'; font-size: 1rem; }
+    .hero-card {
+      position: relative; z-index: 1;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+      opacity: 0;
+      animation: fadeUp .7s .5s forwards;
+    }
+    .hc-avatar {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue) 0%, #4a9eff 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .hc-name { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .hc-title { font-size: .82rem; color: var(--muted); margin-bottom: 20px; }
+    .hc-divider { height: 1px; background: var(--border); margin: 16px 0; }
+    .hc-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .hc-row:last-child { margin-bottom: 0; }
+    .hc-label { font-family: var(--mono); font-size: .65rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+    .hc-val { font-size: .85rem; font-weight: 600; color: var(--text); }
+    .hc-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--green);
+      background: var(--green-lt);
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid #a8d4bc;
+    }
+    .hc-status::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 1.4s step-end infinite;
+    }
     .stats-bar {
-      display: flex;
-      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      background: var(--white);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: var(--surface);
-      overflow: hidden;
     }
     .stat {
-      flex: 1;
-      padding: 32px 40px;
+      padding: 28px 36px;
       border-right: 1px solid var(--border);
-      transition: background .2s;
+      transition: background .18s;
     }
     .stat:last-child { border-right: none; }
-    .stat:hover { background: var(--card); }
-    .stat-num {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 2.6rem;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .stat-num span { color: var(--green); font-size: 1.8rem; }
-    .stat-label {
-      font-size: .82rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-top: 6px;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      padding: 100px 60px;
-    }
-    .section-alt { background: var(--surface); }
-
+    .stat:hover { background: var(--blue-lt); }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--blue); line-height: 1; }
+    .stat-num sup { font-family: var(--mono); font-size: .9rem; font-weight: 600; color: var(--text2); vertical-align: super; }
+    .stat-label { font-size: .78rem; color: var(--muted); margin-top: 4px; font-weight: 400; }
+    .section { padding: 88px 60px; }
+    .section-alt { background: var(--white); }
     .section-header {
       display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 60px;
-    }
-    .section-num {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .72rem;
-      color: var(--accent);
-      letter-spacing: .15em;
-    }
-    .section-line {
-      flex: 1;
-      max-width: 60px;
-      height: 1px;
-      background: var(--border);
-    }
-    h2 {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: 2.2rem;
-      color: var(--white);
-      letter-spacing: .02em;
-    }
-
-    /* ── EXPERIENCE TIMELINE ── */
-    .timeline { position: relative; padding-left: 32px; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 8px; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 52px;
-      padding: 28px 32px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      transition: border-color .2s, transform .2s;
-    }
-    .timeline-item:hover {
-      border-color: var(--accent);
-      transform: translateX(4px);
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -40px; top: 28px;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 12px var(--accent);
-    }
-
-    .tl-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-    .tl-role {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: .03em;
-    }
-    .tl-period {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .72rem;
-      color: var(--accent2);
-      letter-spacing: .1em;
-      white-space: nowrap;
-      padding: 4px 10px;
-      border: 1px solid rgba(255,107,53,.3);
-      border-radius: 2px;
-    }
-    .tl-company {
-      font-size: .9rem;
-      color: var(--accent);
-      margin-bottom: 14px;
-      font-weight: 500;
-    }
-    .tl-desc {
-      font-size: .95rem;
-      color: var(--text);
-      line-height: 1.7;
-    }
-    .tl-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-    .tl-tag {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .65rem;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 3px 10px;
-      border-radius: 2px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    /* ── CERTIFICATIONS ── */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .cert-card {
-      padding: 28px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: border-color .2s, transform .2s;
-      cursor: default;
-    }
-    .cert-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 100%;
-    }
-    .cert-card.cisco::before { background: linear-gradient(to bottom, #1ba0d7, #0066a0); }
-    .cert-card.extreme::before { background: linear-gradient(to bottom, var(--green), #00994f); }
-
-    .cert-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .cert-logo {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .68rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .cert-logo.cisco { color: #1ba0d7; }
-    .cert-logo.extreme { color: var(--green); }
-
-    .cert-name {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .cert-desc {
-      font-size: .88rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .cert-level {
-      display: inline-block;
-      margin-top: 14px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .65rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 2px;
-    }
-    .cert-level.expert  { background: rgba(255,107,53,.12); color: var(--accent2); border: 1px solid rgba(255,107,53,.3); }
-    .cert-level.pro     { background: rgba(0,212,255,.08); color: var(--accent); border: 1px solid rgba(0,212,255,.25); }
-    .cert-level.assoc   { background: rgba(0,255,136,.07); color: var(--green); border: 1px solid rgba(0,255,136,.25); }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      align-items: baseline;
       gap: 16px;
+      margin-bottom: 52px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
     }
-    .skill-item {
-      padding: 20px 24px;
-      background: var(--card);
+    .section-num { font-family: var(--mono); font-size: .68rem; font-weight: 600; color: var(--blue); letter-spacing: .12em; text-transform: uppercase; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; font-weight: 400; color: var(--text); letter-spacing: -.01em; }
+    .timeline { display: flex; flex-direction: column; gap: 24px; }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      background: var(--white);
       border: 1px solid var(--border);
-      transition: border-color .2s;
-    }
-    .skill-item:hover { border-color: var(--accent); }
-    .skill-name {
-      font-size: .95rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .skill-bar {
-      height: 3px;
-      background: var(--border);
-      border-radius: 2px;
+      border-radius: 10px;
       overflow: hidden;
+      transition: box-shadow .2s, border-color .2s;
     }
+    .section-alt .tl-item { background: var(--bg); }
+    .tl-item:hover { border-color: var(--blue); box-shadow: 0 4px 20px rgba(26,95,212,.08); }
+    .tl-sidebar {
+      background: var(--blue-lt);
+      border-right: 1px solid #c0d4f5;
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tl-period { font-family: var(--mono); font-size: .68rem; font-weight: 600; color: var(--blue); letter-spacing: .06em; line-height: 1.5; }
+    .tl-dot { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; margin-top: 4px; }
+    .tl-body { padding: 28px 32px; }
+    .tl-role { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .tl-company { font-size: .85rem; font-weight: 600; color: var(--blue); margin-bottom: 14px; }
+    .tl-desc { font-size: .93rem; color: var(--text2); line-height: 1.7; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .tl-tag {
+      font-family: var(--mono); font-size: .62rem; font-weight: 600;
+      color: var(--text2); background: var(--surface);
+      border: 1px solid var(--border2);
+      padding: 3px 10px; border-radius: 4px;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .cert-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px;
+      transition: box-shadow .2s, border-color .2s, transform .15s;
+    }
+    .cert-card:hover { border-color: var(--blue); box-shadow: 0 6px 24px rgba(26,95,212,.1); transform: translateY(-2px); }
+    .cert-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: .62rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 4px; margin-bottom: 14px;
+    }
+    .cert-badge.cisco  { color: #0066a0; background: #e8f4fb; border: 1px solid #b0d8f0; }
+    .cert-badge.extreme{ color: var(--green); background: var(--green-lt); border: 1px solid #a8d4bc; }
+    .cert-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+    .cert-name { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+    .cert-desc { font-size: .87rem; color: var(--text2); line-height: 1.65; }
+    .cert-level {
+      display: inline-block; margin-top: 16px;
+      font-family: var(--mono); font-size: .62rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 100px;
+    }
+    .cert-level.expert { background: #fdf0e8; color: var(--orange); border: 1.5px solid #f0c4a0; }
+    .cert-level.pro    { background: var(--blue-lt); color: var(--blue); border: 1.5px solid #a8c4f0; }
+    .cert-level.assoc  { background: var(--green-lt); color: var(--green); border: 1.5px solid #a8d4bc; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .skill-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 20px 22px;
+      transition: border-color .18s;
+    }
+    .skill-item:hover { border-color: var(--blue); }
+    .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .skill-name { font-size: .9rem; font-weight: 600; color: var(--text); }
+    .skill-pct { font-family: var(--mono); font-size: .7rem; font-weight: 600; color: var(--blue); }
+    .skill-bar { height: 4px; background: var(--surface); border-radius: 4px; overflow: hidden; }
     .skill-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--green));
-      border-radius: 2px;
-      animation: fillBar 1.2s ease-out forwards;
-      transform-origin: left;
-      transform: scaleX(0);
+      background: linear-gradient(90deg, var(--blue) 0%, var(--blue-mid) 100%);
+      border-radius: 4px;
+      transform: scaleX(0); transform-origin: left;
+      animation: fillBar 1s ease-out forwards;
     }
-    @keyframes fillBar {
-      to { transform: scaleX(1); }
-    }
-    .skill-pct {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .65rem;
-      color: var(--muted);
-      margin-top: 6px;
-      letter-spacing: .08em;
-    }
-
-    /* ── EDUCATION ── */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-    }
+    @keyframes fillBar { to { transform: scaleX(1); } }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
     .edu-card {
-      padding: 32px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--accent);
-      transition: transform .2s;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 32px;
+      display: flex; flex-direction: column; gap: 6px;
+      transition: border-color .18s, transform .15s;
     }
-    .edu-card:hover { transform: translateY(-4px); }
-    .edu-degree {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 6px;
-    }
-    .edu-school {
-      font-size: .9rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .edu-year {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .68rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-    }
-
-    /* ── CONTACT ── */
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
+    .edu-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .edu-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .edu-degree { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .edu-school { font-size: .88rem; font-weight: 600; color: var(--blue); }
+    .edu-year { font-family: var(--mono); font-size: .68rem; color: var(--muted); letter-spacing: .06em; }
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     .contact-text h2 { margin-bottom: 16px; }
-    .contact-text p {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-text p { font-size: .97rem; color: var(--text2); line-height: 1.75; margin-bottom: 24px; }
+    .contact-links { display: flex; flex-direction: column; gap: 10px; }
     .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 20px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      text-decoration: none;
-      color: var(--text);
-      font-size: .95rem;
-      transition: border-color .2s, color .2s;
+      display: flex; align-items: center; gap: 14px;
+      padding: 15px 20px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; text-decoration: none;
+      color: var(--text); font-size: .9rem;
+      transition: border-color .18s, background .18s, color .18s;
     }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
-    .contact-link .icon {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .7rem;
-      color: var(--accent);
-      letter-spacing: .1em;
-      min-width: 60px;
+    .contact-link:hover { border-color: var(--blue); background: var(--blue-lt); color: var(--blue); }
+    .cl-icon {
+      font-family: var(--mono); font-size: .62rem; font-weight: 600;
+      color: var(--blue); letter-spacing: .08em; min-width: 64px;
+      text-transform: uppercase; background: var(--blue-lt);
+      padding: 3px 8px; border-radius: 4px; border: 1px solid #c0d4f5;
     }
-
-    /* ── FOOTER ── */
     footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 32px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: var(--text); color: rgba(255,255,255,.5);
+      padding: 28px 60px;
+      display: flex; justify-content: space-between; align-items: center;
     }
-    footer p {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .68rem;
-      color: var(--muted);
-      letter-spacing: .1em;
-    }
-    .uptime {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: .68rem;
-      color: var(--green);
-      letter-spacing: .1em;
-    }
-    .uptime::before {
-      content: '● ';
-      animation: blink 1.2s step-end infinite;
-    }
+    footer p { font-family: var(--mono); font-size: .68rem; letter-spacing: .06em; }
+    .footer-status { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: .68rem; color: #6ee89e; letter-spacing: .08em; }
+    .footer-status::before { content: ''; width: 6px; height: 6px; background: #6ee89e; border-radius: 50%; animation: blink 1.4s step-end infinite; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes blink { 50% { opacity: 0; } }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      nav ul { gap: 20px; }
-      header, .section { padding-left: 24px; padding-right: 24px; }
-      .stats-bar { flex-direction: column; }
-      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 900px) {
+      header { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .stats-bar { grid-template-columns: repeat(3, 1fr); }
       .contact-wrap { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      nav ul { gap: 16px; }
+      header, .section { padding-left: 20px; padding-right: 20px; }
+      .tl-item { grid-template-columns: 1fr; }
+      .tl-sidebar { flex-direction: row; border-right: none; border-bottom: 1px solid #c0d4f5; padding: 14px 20px; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 10px; text-align: center; padding: 20px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">/<span>NET</span>_ENGINEER</div>
+  <div class="nav-logo">AEJ // NET_ENG</div>
   <ul>
     <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#certificaciones">Certificaciones</a></li>
@@ -604,299 +400,135 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <header>
-  <div class="hero-bg"></div>
-  <p class="hero-tag">Ingeniero de Telecomunicaciones &amp; Network Architect</p>
-  <h1>Alejandro<em>Esparza Juandeaburre</em></h1>
-  <p class="hero-sub">
-    Arquitecto de redes con más de 10 años diseñando, desplegando y operando infraestructuras críticas de CPD, LAN y WAN para organizaciones de gran escala.
-  </p>
-  <div class="hero-badges">
-    <span class="badge">CCIE #Enterprise</span>
-    <span class="badge">CCNP Enterprise</span>
-    <span class="badge">CCNA</span>
-    <span class="badge green">Extreme Networks</span>
-    <span class="badge green">CPD / Data Center</span>
+  <div class="hero-decoration"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Ingeniero de Telecomunicaciones</span>
+    <h1>Alejandro<br>Esparza <span>Juandeaburre</span></h1>
+    <p class="hero-sub">Arquitecto de redes con más de 10 años diseñando, desplegando y operando infraestructuras críticas de CPD, LAN y WAN para organizaciones de gran escala.</p>
+    <div class="hero-chips">
+      <span class="chip chip-orange">CCIE Enterprise</span>
+      <span class="chip chip-blue">CCNP Enterprise</span>
+      <span class="chip chip-blue">CCNA</span>
+      <span class="chip chip-green">Extreme Networks</span>
+      <span class="chip chip-green">CPD / Data Center</span>
+    </div>
+    <a class="hero-cta" href="#contacto">Contactar</a>
   </div>
-  <a class="hero-cta" href="#contacto">Contactar</a>
+  <div class="hero-card">
+    <div class="hc-avatar">AE</div>
+    <div class="hc-name">Alejandro Esparza J.</div>
+    <div class="hc-title">Senior Network Architect · FUJITSU</div>
+    <span class="hc-status">Disponible para proyectos</span>
+    <div class="hc-divider"></div>
+    <div class="hc-row"><span class="hc-label">Ubicación</span><span class="hc-val">Madrid, España</span></div>
+    <div class="hc-row"><span class="hc-label">Experiencia</span><span class="hc-val">11+ años</span></div>
+    <div class="hc-row"><span class="hc-label">Especialidad</span><span class="hc-val">CPD / LAN / WAN</span></div>
+    <div class="hc-row"><span class="hc-label">Certificaciones</span><span class="hc-val">6 activas</span></div>
+  </div>
 </header>
 
-<!-- STATS -->
 <div class="stats-bar">
-  <div class="stat">
-    <div class="stat-num">11<span>+</span></div>
-    <div class="stat-label">Años de experiencia</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">50<span>+</span></div>
-    <div class="stat-label">Proyectos completados</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">3</div>
-    <div class="stat-label">Certificaciones Cisco</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">3</div>
-    <div class="stat-label">Certificaciones Extreme</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">99<span>.9%</span></div>
-    <div class="stat-label">SLA en infraestructura</div>
-  </div>
+  <div class="stat"><div class="stat-num">11<sup>+</sup></div><div class="stat-label">Años de experiencia</div></div>
+  <div class="stat"><div class="stat-num">50<sup>+</sup></div><div class="stat-label">Proyectos completados</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Certificaciones Cisco</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Certificaciones Extreme</div></div>
+  <div class="stat"><div class="stat-num">99<sup>.9%</sup></div><div class="stat-label">SLA en infraestructura</div></div>
 </div>
 
-<!-- EXPERIENCIA -->
 <section class="section" id="experiencia">
-  <div class="section-header reveal">
-    <span class="section-num">01 //</span>
-    <div class="section-line"></div>
-    <h2>Experiencia Profesional</h2>
-  </div>
-
+  <div class="section-header reveal"><span class="section-num">01</span><h2>Experiencia Profesional</h2></div>
   <div class="timeline">
-
-    <div class="timeline-item reveal">
-      <div class="tl-meta">
-        <span class="tl-role">Senior Network Architect – CPD/LAN</span>
-        <span class="tl-period">2018 — Presente</span>
-      </div>
-      <div class="tl-company">FUJITSU · Madrid, España</div>
-      <p class="tl-desc">
-        Diseño y operación de la infraestructura de red del Centro de Procesamiento de Datos corporativo con más de 4.000 puertos activos. Liderazgo técnico en migraciones de core, implementación de arquitecturas Spine-Leaf, y segmentación avanzada con VRF. Gestión de la disponibilidad 24/7 y coordinación con equipos de seguridad, virtualización y almacenamiento.
-      </p>
-      <div class="tl-tags">
-        <span class="tl-tag">Spine-Leaf</span>
-        <span class="tl-tag">MPLS</span>
-        <span class="tl-tag">BGP</span>
-        <span class="tl-tag">EVPN/VXLAN</span>
-        <span class="tl-tag">CPD</span>
-        <span class="tl-tag">Cisco Catalyst / Nexus</span>
+    <div class="tl-item reveal">
+      <div class="tl-sidebar"><div class="tl-period">2018<br>— Presente</div><div class="tl-dot"></div></div>
+      <div class="tl-body">
+        <div class="tl-role">Senior Network Architect – CPD/LAN</div>
+        <div class="tl-company">FUJITSU · Madrid, España</div>
+        <p class="tl-desc">Diseño y operación de la infraestructura de red del Centro de Procesamiento de Datos corporativo con más de 4.000 puertos activos. Liderazgo técnico en migraciones de core, implementación de arquitecturas Spine-Leaf, y segmentación avanzada con VRF. Gestión de la disponibilidad 24/7 y coordinación con equipos de seguridad, virtualización y almacenamiento.</p>
+        <div class="tl-tags"><span class="tl-tag">Spine-Leaf</span><span class="tl-tag">MPLS</span><span class="tl-tag">BGP</span><span class="tl-tag">EVPN/VXLAN</span><span class="tl-tag">CPD</span><span class="tl-tag">Cisco Catalyst / Nexus</span></div>
       </div>
     </div>
-
-    <div class="timeline-item reveal">
-      <div class="tl-meta">
-        <span class="tl-role">Network Support Engineer – LAN/WAN/WLAN</span>
-        <span class="tl-period">2016 — 2018</span>
-      </div>
-      <div class="tl-company">FUJITSU · Madrid, España</div>
-      <p class="tl-desc">
-        Ingeniero de soporte para redes corporativas LAN y WLAN para clientes para sector publico y privado. 
-      </p>
-      <div class="tl-tags">
-        <span class="tl-tag">SD-WAN</span>
-        <span class="tl-tag">OSPF</span>
-        <span class="tl-tag">QoS</span>
-        <span class="tl-tag">Extreme Networks</span>
-        <span class="tl-tag">802.1X</span>
-        <span class="tl-tag">VLAN Stacking</span>
+    <div class="tl-item reveal">
+      <div class="tl-sidebar"><div class="tl-period">2016<br>— 2018</div><div class="tl-dot"></div></div>
+      <div class="tl-body">
+        <div class="tl-role">Network Support Engineer – LAN/WAN/WLAN</div>
+        <div class="tl-company">FUJITSU · Madrid, España</div>
+        <p class="tl-desc">Ingeniero de soporte para redes corporativas LAN y WLAN para clientes del sector público y privado. Resolución de incidencias de red, gestión de cambios y soporte a proyectos de expansión.</p>
+        <div class="tl-tags"><span class="tl-tag">SD-WAN</span><span class="tl-tag">OSPF</span><span class="tl-tag">QoS</span><span class="tl-tag">Extreme Networks</span><span class="tl-tag">802.1X</span><span class="tl-tag">VLAN Stacking</span></div>
       </div>
     </div>
-
-    <div class="timeline-item reveal">
-      <div class="tl-meta">
-        <span class="tl-role">Beca Network Engineer</span>
-        <span class="tl-period">2015 — 2016</span>
-      </div>
-      <div class="tl-company">FUJITSU · Madrid, España</div>
-      <p class="tl-desc">
-        Administración y soporte de infraestructura de red en entornos multisite. Configuración de equipos Cisco (routers, switches, ASA) y Extreme Networks. Participación en proyectos de expansión de CPD con cableado estructurado y automatización básica de aprovisionamiento de puertos.
-      </p>
-      <div class="tl-tags">
-        <span class="tl-tag">Cisco Switches</span>
-        <span class="tl-tag">UCS</span>
-        <span class="tl-tag">Cableado Estructurado</span>
-        <span class="tl-tag">VoIP</span>
-         <span class="tl-tag">WiFi</span>
-        <span class="tl-tag">Gestión CPD</span>
+    <div class="tl-item reveal">
+      <div class="tl-sidebar"><div class="tl-period">2015<br>— 2016</div><div class="tl-dot"></div></div>
+      <div class="tl-body">
+        <div class="tl-role">Beca Network Engineer</div>
+        <div class="tl-company">FUJITSU · Madrid, España</div>
+        <p class="tl-desc">Administración y soporte de infraestructura de red en entornos multisite. Configuración de equipos Cisco (routers, switches, ASA) y Extreme Networks. Participación en proyectos de expansión de CPD con cableado estructurado y automatización básica de aprovisionamiento de puertos.</p>
+        <div class="tl-tags"><span class="tl-tag">Cisco Switches</span><span class="tl-tag">UCS</span><span class="tl-tag">Cableado Estructurado</span><span class="tl-tag">VoIP</span><span class="tl-tag">WiFi</span><span class="tl-tag">Gestión CPD</span></div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- CERTIFICACIONES -->
 <section class="section section-alt" id="certificaciones">
-  <div class="section-header reveal">
-    <span class="section-num">02 //</span>
-    <div class="section-line"></div>
-    <h2>Certificaciones</h2>
-  </div>
-
+  <div class="section-header reveal"><span class="section-num">02</span><h2>Certificaciones</h2></div>
   <div class="certs-grid">
-
-    <div class="cert-card cisco reveal">
-      <div class="cert-logo cisco">CISCO SYSTEMS</div>
-      <div class="cert-name">CCIE Enterprise Infrastructure</div>
-      <p class="cert-desc">El nivel más alto de certificación Cisco en infraestructura de red empresarial. Acredita dominio avanzado en routing, switching, SD-WAN, automatización y diseño de redes a gran escala.</p>
-      <span class="cert-level expert">Expert</span>
-    </div>
-
-    <div class="cert-card cisco reveal">
-      <div class="cert-logo cisco">CISCO SYSTEMS</div>
-      <div class="cert-name">CCNP Enterprise</div>
-      <p class="cert-desc">Certificación profesional en redes empresariales que cubre routing avanzado (OSPF, BGP, EIGRP), switching, SD-Access, SD-WAN y aseguramiento de red.</p>
-      <span class="cert-level pro">Professional</span>
-    </div>
-
-    <div class="cert-card cisco reveal">
-      <div class="cert-logo cisco">CISCO SYSTEMS</div>
-      <div class="cert-name">CCNA</div>
-      <p class="cert-desc">Certificación de nivel asociado que valida el conocimiento en fundamentos de redes, seguridad básica, automatización y programabilidad en entornos Cisco.</p>
-      <span class="cert-level assoc">Associate</span>
-    </div>
-
-    <div class="cert-card extreme reveal">
-      <div class="cert-logo extreme">EXTREME NETWORKS</div>
-      <div class="cert-name">EXCS – Cloud &amp; Stack</div>
-      <p class="cert-desc">Certificación en gestión y configuración de soluciones de red en la nube con ExtremeCloud IQ y arquitecturas stacking de alta disponibilidad.</p>
-      <span class="cert-level pro">Professional</span>
-    </div>
-
-    <div class="cert-card extreme reveal">
-      <div class="cert-logo extreme">EXTREME NETWORKS</div>
-      <div class="cert-name">EXCA – Campus Access</div>
-      <p class="cert-desc">Especialización en diseño y despliegue de redes de campus con ExtremeXOS, políticas de acceso, VLANs dinámicas y seguridad de capa 2.</p>
-      <span class="cert-level assoc">Associate</span>
-    </div>
-
-    <div class="cert-card extreme reveal">
-      <div class="cert-logo extreme">EXTREME NETWORKS</div>
-      <div class="cert-name">EXDS – Data Center</div>
-      <p class="cert-desc">Certificación enfocada en soluciones de CPD con Extreme Fabric Connect, MLAG, y gestión de infraestructura de alto rendimiento para centros de datos.</p>
-      <span class="cert-level pro">Professional</span>
-    </div>
-
+    <div class="cert-card reveal"><div class="cert-badge cisco">Cisco Systems</div><div class="cert-name">CCIE Enterprise Infrastructure</div><p class="cert-desc">El nivel más alto de certificación Cisco en infraestructura de red empresarial. Dominio avanzado en routing, switching, SD-WAN, automatización y diseño de redes a gran escala.</p><span class="cert-level expert">Expert</span></div>
+    <div class="cert-card reveal"><div class="cert-badge cisco">Cisco Systems</div><div class="cert-name">CCNP Enterprise</div><p class="cert-desc">Certificación profesional en redes empresariales: routing avanzado (OSPF, BGP, EIGRP), switching, SD-Access, SD-WAN y aseguramiento de red.</p><span class="cert-level pro">Professional</span></div>
+    <div class="cert-card reveal"><div class="cert-badge cisco">Cisco Systems</div><div class="cert-name">CCNA</div><p class="cert-desc">Fundamentos de redes, seguridad básica, automatización y programabilidad en entornos Cisco.</p><span class="cert-level assoc">Associate</span></div>
+    <div class="cert-card reveal"><div class="cert-badge extreme">Extreme Networks</div><div class="cert-name">EXCS – Cloud &amp; Stack</div><p class="cert-desc">Gestión y configuración de soluciones de red en la nube con ExtremeCloud IQ y arquitecturas stacking de alta disponibilidad.</p><span class="cert-level pro">Professional</span></div>
+    <div class="cert-card reveal"><div class="cert-badge extreme">Extreme Networks</div><div class="cert-name">EXCA – Campus Access</div><p class="cert-desc">Diseño y despliegue de redes de campus con ExtremeXOS, políticas de acceso, VLANs dinámicas y seguridad de capa 2.</p><span class="cert-level assoc">Associate</span></div>
+    <div class="cert-card reveal"><div class="cert-badge extreme">Extreme Networks</div><div class="cert-name">EXDS – Data Center</div><p class="cert-desc">Soluciones de CPD con Extreme Fabric Connect, MLAG y gestión de infraestructura de alto rendimiento para centros de datos.</p><span class="cert-level pro">Professional</span></div>
   </div>
 </section>
 
-<!-- HABILIDADES -->
 <section class="section" id="habilidades">
-  <div class="section-header reveal">
-    <span class="section-num">03 //</span>
-    <div class="section-line"></div>
-    <h2>Habilidades Técnicas</h2>
-  </div>
-
+  <div class="section-header reveal"><span class="section-num">03</span><h2>Habilidades Técnicas</h2></div>
   <div class="skills-grid">
-    <div class="skill-item reveal">
-      <div class="skill-name">Routing Avanzado (BGP / OSPF)</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div>
-      <div class="skill-pct">97 / 100</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">Switching &amp; LAN Design</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div>
-      <div class="skill-pct">96 / 100</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">Arquitectura CPD (Spine-Leaf)</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div>
-      <div class="skill-pct">94 / 100</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">SD-WAN &amp; WAN Optimization</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-      <div class="skill-pct">90 / 100</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">Extreme Networks WLAN&LAN</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-      <div class="skill-pct">92 / 100</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">ACI y redes SDN</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-      <div class="skill-pct">88 / 100</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">Network Automation (Python / Ansible)</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
-      <div class="skill-pct">78 / 100</div>
-    </div>
-    <div class="skill-item reveal">
-      <div class="skill-name">Seguridad de Red &amp; Firewall</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-      <div class="skill-pct">85 / 100</div>
-    </div>
+    <div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Routing Avanzado (BGP / OSPF)</span><span class="skill-pct">97%</span></div><div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Switching &amp; LAN Design</span><span class="skill-pct">96%</span></div><div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Arquitectura CPD (Spine-Leaf)</span><span class="skill-pct">94%</span></div><div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-header"><span class="skill-name">SD-WAN &amp; WAN Optimization</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Extreme Networks WLAN &amp; LAN</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-header"><span class="skill-name">ACI y redes SDN</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Network Automation (Python / Ansible)</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+    <div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Seguridad de Red &amp; Firewall</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
   </div>
 </section>
 
-<!-- FORMACIÓN -->
 <section class="section section-alt" id="formacion">
-  <div class="section-header reveal">
-    <span class="section-num">04 //</span>
-    <div class="section-line"></div>
-    <h2>Formación Académica</h2>
-  </div>
-
+  <div class="section-header reveal"><span class="section-num">04</span><h2>Formación Académica</h2></div>
   <div class="edu-grid">
-    <div class="edu-card reveal">
-      <div class="edu-degree">Máster en Ingeniería de Telecomunicaciones</div>
-      <div class="edu-school">Universidad Autonoma de Madrid</div>
-      <div class="edu-year">2016 — 2018  ·  Especialidad: Telemática y Redes</div>
-    </div>
-    <div class="edu-card reveal">
-      <div class="edu-degree">Grado en Ingeniería de Telecomunicaciones</div>
-      <div class="edu-school">Universidad Autonoma de Madrid</div>
-      <div class="edu-year">2011 — 2016  ·  Mención: Sistemas de Telecomunicación</div>
-    </div>
+    <div class="edu-card reveal"><div class="edu-icon">🎓</div><div class="edu-degree">Máster en Ingeniería de Telecomunicaciones</div><div class="edu-school">Universidad Autónoma de Madrid</div><div class="edu-year">2016 — 2018 · Especialidad: Telemática y Redes</div></div>
+    <div class="edu-card reveal"><div class="edu-icon">🎓</div><div class="edu-degree">Grado en Ingeniería de Telecomunicaciones</div><div class="edu-school">Universidad Autónoma de Madrid</div><div class="edu-year">2011 — 2016 · Mención: Sistemas de Telecomunicación</div></div>
   </div>
 </section>
 
-<!-- CONTACTO -->
 <section class="section" id="contacto">
   <div class="contact-wrap">
     <div class="contact-text reveal">
-      <div class="section-header" style="margin-bottom:20px;">
-        <span class="section-num">05 //</span>
-        <div class="section-line"></div>
-        <h2>Contacto</h2>
-      </div>
+      <div class="section-header" style="margin-bottom:20px;"><span class="section-num">05</span><h2>Contacto</h2></div>
       <p>¿Tienes un proyecto de infraestructura de red o CPD? Estoy disponible para consultoría, auditorías de red y proyectos de diseño y despliegue a medida.</p>
-      <div class="hero-badges">
-        <span class="badge">Disponible para proyectos</span>
-        <span class="badge green">Madrid · España</span>
-      </div>
+      <div class="hero-chips"><span class="chip chip-green">Disponible para proyectos</span><span class="chip chip-blue">Madrid · España</span></div>
     </div>
     <div class="contact-links reveal">
-      <a href="mailto:alejandro.esparza.j@gmail.com" class="contact-link">
-        <span class="icon">EMAIL</span>
-        alejandro.esparza.j@gmail.com
-      </a>
-      <a href="https://linkedin.com" class="contact-link" target="_blank">
-        <span class="icon">LINKEDIN</span>
-        linkedin.com/in/alejandro-esparza-juandeaburre-87a5b3117
-      </a>
-      <a href="tel:++34 639743970" class="contact-link">
-        <span class="icon">TEL</span>
-        +34 639 74 39 70
-      </a>
-      <a href="#" class="contact-link">
-        <span class="icon">GITHUB</span>
-        github.com/alexspz
-      </a>
+      <a href="mailto:alejandro.esparza.j@gmail.com" class="contact-link"><span class="cl-icon">Email</span>alejandro.esparza.j@gmail.com</a>
+      <a href="https://linkedin.com/in/alejandro-esparza-juandeaburre-87a5b3117" class="contact-link" target="_blank"><span class="cl-icon">LinkedIn</span>alejandro-esparza-juandeaburre</a>
+      <a href="tel:+34639743970" class="contact-link"><span class="cl-icon">Tel</span>+34 639 74 39 70</a>
+      <a href="https://github.com/alexspz" class="contact-link" target="_blank"><span class="cl-icon">GitHub</span>github.com/alexspz</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2025 Alejandro Esparza Juandeaburre— Ingeniero de Telecomunicaciones</p>
-  <span class="uptime">SISTEMA EN LÍNEA</span>
+  <p>© 2025 Alejandro Esparza Juandeaburre — Ingeniero de Telecomunicaciones</p>
+  <span class="footer-status">Sistema en línea</span>
 </footer>
 
 <script>
-  // Intersection Observer for reveal animations
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
 </script>
 </body>
